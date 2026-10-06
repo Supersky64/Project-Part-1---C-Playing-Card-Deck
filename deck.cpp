@@ -1,10 +1,8 @@
 #include "deck.h"
 #include "card.h"
 #include <algorithm> // For std::shuffle
-#include <stack>
-#include <vector>
 
-Deck::Deck() {
+Deck::Deck() : rng(std::random_device{}()) {
   const Suit suits[] = {Suit::HEARTS, Suit::DIAMONDS, Suit::CLUBS,
                         Suit::SPADES};
   cards.reserve(52); // Reserve space for 52 cards
