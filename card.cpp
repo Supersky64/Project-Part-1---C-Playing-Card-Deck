@@ -1,3 +1,7 @@
+// This cpp file implements the Card class defined in card.h.
+// It includes the implementation of the constructor, accessor functions, comparison functions, and printing functions for the Card class.
+// It uses enumerations for the suits and ranks of the cards, and provides functionality to get the value of a card based on its rank, compare cards based on their values, and print the card's rank and suit as a string.
+
 #include "card.h"
 
 // Implementation of the Card class methods.

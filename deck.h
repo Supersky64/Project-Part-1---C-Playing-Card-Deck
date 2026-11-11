@@ -1,3 +1,9 @@
+// This header file defines the Deck class, which represents a deck of playing cards.
+// It includes member functions to shuffle the deck and draw cards from it.
+// The Deck class uses a vector to store pointers to Card objects and a stack to manage the shuffled cards.
+// The point of a header file is to provide a declaration of the class and its members,
+// allowing other parts of the program to use the Deck class without needing to know the implementation details
+
 #pragma once
 #include <vector>
 #include <stack>

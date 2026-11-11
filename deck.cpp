@@ -1,3 +1,7 @@
+// This cpp file implements the Deck class defined in deck.h.
+// It includes the implementation of the constructor, destructor, shuffle, and draw methods for the Deck class.
+// It uses the Card class defined in card.h to create a standard deck of 52 playing cards, shuffle them, and allow drawing cards from the shuffled deck.
+
 #include "deck.h"
 #include "card.h"
 #include <algorithm> // For std::shuffle
@@ -38,6 +42,7 @@ void Deck::shuffle() {
     }
 }
 
+// Draw a card from the top of the shuffled deck.
 Card* Deck::draw() {
     if (shuffledDeck.empty()) {
         return nullptr; // Return nullptr if the deck is empty

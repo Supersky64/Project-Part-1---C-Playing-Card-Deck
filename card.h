@@ -1,3 +1,10 @@
+// This header file defines the Card class, which represents a playing card with a suit and rank. 
+// It includes enumerations for the suits and ranks, 
+// as well as member functions to access the card's properties and compare cards based on their values.
+
+//The point of a header file is to provide a declaration of the class and its members, 
+//allowing other parts of the program to use the Card class without needing to know the implementation details.
+
 #pragma once
 
 #include <iostream>
