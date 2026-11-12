@@ -1,8 +1,14 @@
 #include "deck.h"
+#include "blackjack.h"
 #include <iostream>
 
-int main() {
-    Deck deck; // Create a deck of cards
+int main(int argc, char* argv[]) {
+
+    Blackjack blackjack; // Create a Blackjack game instance
+    blackjack.play(); // Start the Blackjack game
+
+
+   /* Deck deck; // Create a deck of cards
     deck.shuffle(); // Shuffle the deck of cards
 
     Card* card1 = deck.draw(); // Draw the first card from the deck
@@ -22,4 +28,5 @@ int main() {
         << (sum -10) <<std::endl;
     }
     return 0; // End of program
+    */
 }
