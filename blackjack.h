@@ -14,7 +14,7 @@ class Blackjack {
         std::vector<Card*> playerHand; // Vector to store the player's hand
         std::vector<Card*> dealerHand; // Vector to store the dealer's hand
         
-        int handValue(const std::vector<Card*> &hand); // Function to calculate the value of a hand
+        int handValue(const std::vector<Card*> &hand) const; // Function to calculate the value of a hand
         void dealInitialCards(); // Function to deal the initial cards to the player and dealer
         void playerTurn(); // handle the player's turn
         void dealerTurn(); // handle the dealer's turn
