@@ -107,3 +107,46 @@ void Blackjack::playerTurn() {
         }
     }
 }
+
+void Blackjack::dealerTurn() {
+    std::cout << "\nThe Dealer's card is revealed!\n";
+    showHands(true); // Show the dealer's hand with both cards revealed
+
+    while (handValue(dealerHand) < 17) {
+        Card* newCard = deck.draw(); // Draw a new card for the dealer
+
+        if(newCard == nullptr){
+            std::cout << "The deck is empty. Cannot draw more cards.\n";
+            break; // Exit the loop if the deck is empty
+        }
+
+        dealerHand.push_back(newCard); // Add the new card to the dealer's hand
+        std::cout << "Dealer hits and drew: "; newCard->print();
+        std::cout << "\nDealer's Value: " << handValue(dealerHand) << "\n"; // Show the dealer's new hand value
+    }
+
+    if (handValue(dealerHand) >= 17){
+        std::cout << "Dealer stands.\n"; // Inform that the dealer has chosen to stand
+    }
+}
+
+void Blackjack::winner() const {
+    int playerValue = handValue(playerHand); // Get the player's hand value
+    int dealerValue = handValue(dealerHand); // Get the dealer's hand value
+
+    std::cout << "\nFinal Results:\n";
+    std::cout << "Your Hand Value: " << playerValue << "\n";
+    std::cout << "Dealer's Hand Value: " << dealerValue << "\n";
+
+    if (isBust(playerHand)) {
+        std::cout << "You busted! Dealer wins. Tough luck!\n"; // Player busts, dealer wins
+    } else if (isBust(dealerHand)) {
+        std::cout << "Dealer busted! You win!\n"; // Dealer busts, player wins
+    } else if (playerValue > dealerValue) {
+        std::cout << "You win!\n"; // Player has a higher hand value, player wins
+    } else if (playerValue < dealerValue) {
+        std::cout << "Dealer wins.\n"; // Dealer has a higher hand value, dealer wins
+    } else {
+        std::cout << "PUSH! It's a tie!\n"; // Both have the same hand value, it's a tie
+    }
+}

@@ -21,7 +21,7 @@ class Blackjack {
         void showHands(bool revealDealer = false); // display the hands of the player and dealer
         void showHand(const std::vector<Card*> &hand) const; // display a specific hand
         void clearHands(); // clear the hands of the player and dealer
-        void winner(); // determine the winner of the game
+        void winner() const; // determine the winner of the game
         bool isBlackJack(const std::vector<Card*> &hand) const; // check if a hand is a blackjack
         bool isBust(const std::vector<Card*> &hand) const; // check if a hand is bust
 };
