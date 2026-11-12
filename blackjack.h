@@ -17,6 +17,7 @@ class Blackjack {
         int handValue(const std::vector<Card*> &hand) const; // Function to calculate the value of a hand
         int cash = 500; // Player's starting cash
         int bet = 0; // Player's current bet
+        bool allIn = false; // Flag to indicate if the player is all in
         void dealInitialCards(); // Function to deal the initial cards to the player and dealer
         void playerTurn(); // handle the player's turn
         void dealerTurn(); // handle the dealer's turn

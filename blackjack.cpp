@@ -158,22 +158,34 @@ void Blackjack::winner() {
   slowPrint("Dealer's Hand Value: " + std::to_string(dealerValue) + "\n");
 
   if (isBust(playerHand)) {
-    slowPrint(
-        "You busted! Dealer wins. Tough luck!\n"); // Player busts, dealer wins
+    slowPrint("You busted! Dealer wins. Tough luck!\n"); // Player busts, dealer wins
+    if(allIn) {
+        slowPrint("Ouch! That's unlucky! Maybe think about your choices next time buddy...\n");
+    } // Add a special message if the player went all in
     cash -= bet; // Deduct the bet from the player's cash
   } else if (isBust(dealerHand)) {
     slowPrint("Dealer busted! You win!\n"); // Dealer busts, player wins
+    if(allIn) {
+        slowPrint("WOW! Had me sweating there haha! You have balls of steel for that bet! Here's your cash!\n");
+    } // Add a special message if the player went all in
     cash += bet;                            // Add the bet to the player's cash
   } else if (playerValue > dealerValue) {
     slowPrint("You win!\n"); // Player has a higher hand value, player wins
+    if(allIn) {
+        slowPrint("WOW! That was a close one! You had me going there with that all in bet! Here's your cash!\n");
+    } // Add a special message if the player went all in
     cash += bet;             // Add the bet to the player's cash
   } else if (playerValue < dealerValue) {
-    slowPrint(
-        "Yikes! Dealer wins.\n"); // Dealer has a higher hand value, dealer wins
+    slowPrint("Yikes! Dealer wins.\n"); // Dealer has a higher hand value, dealer wins
+    if(allIn) {
+        slowPrint("Yikes! Ah so close! Sorry buddy...\n");
+    } // Add a special message if the player went all in
     cash -= bet;                  // Deduct the bet from the player's cash
   } else {
-    slowPrint("PUSH! It's a tie! Your cash remains: $" + std::to_string(cash) +
-              "\n"); // Both have the same hand value, it's a tie
+    slowPrint("PUSH! It's a tie! Your cash remains: $" + std::to_string(cash) +"\n"); // Both have the same hand value, it's a tie
+    if(allIn) {
+        slowPrint("Phew! That was a close one! You may want to take this as a sign from on high...\n");
+    } // Add a special message if the player went all in
   }
 
   slowPrint("Your remaining cash: $" + std::to_string(cash) +
@@ -217,6 +229,8 @@ void Blackjack::play() {
     } else {
       slowPrint("You bet: $" + std::to_string(bet) + "\n");
     }
+
+    allIn = (bet == cash); // Check if the player is going all in
 
     dealInitialCards(); // Deal the initial cards to the player and dealer
     showHands(false);   // Show the hands with the dealer's second card hidden
